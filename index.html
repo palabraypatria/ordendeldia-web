@@ -932,16 +932,16 @@ async function loadSanto() {
       body: JSON.stringify({
         model: "claude-sonnet-4-20250514",
         max_tokens: 1000,
-        messages: [{ role: "user", content: `Hoy es ${fecha}. Dime el santo o santos principales del día según el santoral católico romano, especialmente con vínculos con España si los hay.
+        messages: [{ role: "user", content: `Hoy es ${fecha}. Dime el santo o santos principales de este día según el santoral católico romano oficial, con especial atención a santos con vínculos con España, Hispanoamérica o la Iglesia universal. Si hay varios santos, elige el más relevante o el patrono principal.
 
 Responde SOLO con este JSON sin bloques de código ni texto extra:
 {
-  "nombre": "Nombre completo del santo o festividad",
+  "nombre": "Nombre completo del santo o festividad litúrgica",
   "muerte": "año de muerte o '·' si es misterio de fe",
-  "bio": "Biografía breve de 3-4 frases, destacando vínculos con España si existen. Tono solemne y reverente.",
-  "cita": "Una frase célebre del santo, o un versículo bíblico relacionado, o una frase de algún Papa o Doctor de la Iglesia sobre él",
-  "autor": "Nombre del autor de la cita",
-  "patrono": "De qué es patrono/a (breve, o cadena vacía si no aplica)"
+  "bio": "Biografía de 4-5 frases, con tono solemne y reverente. Destaca su santidad, sus obras, sus vínculos con España o Hispanoamérica si los hay.",
+  "cita": "Una frase célebre del propio santo, o de un Papa sobre él, o un versículo bíblico de su vida. Que sea una frase que dé orgullo y edificación leerla.",
+  "autor": "Nombre exacto del autor de la cita",
+  "patrono": "De qué es patrono/a, breve. Vacío si no aplica."
 }` }]
       })
     });
@@ -973,12 +973,61 @@ Responde SOLO con este JSON sin bloques de código ni texto extra:
    PESTAÑA 1 — VERSÍCULO
 ═══════════════════════════════════════ */
 const VERSOS_FALLBACK = [
-  { ref:'Eclesiastés 3:1', texto:'Todo tiene su momento oportuno; hay un tiempo para todo lo que se hace bajo el sol.', libro:'Eclesiastés', reflexion:'El Eclesiastés no pide optimismo forzado, sino honestidad sobre la vida. Hay días en que eso basta.' },
-  { ref:'Salmos 46:10', texto:'Quedaos quietos, y sabed que yo soy Dios.', libro:'Salmos', reflexion:'El silencio es también una forma de fe.' },
-  { ref:'Job 38:4', texto:'¿Dónde estabas tú cuando puse los fundamentos de la tierra?', libro:'Job', reflexion:'Job pregunta, grita, exige respuesta. Y eso también es oración.' },
-  { ref:'Isaías 55:8', texto:'Mis pensamientos no son los de ustedes, ni sus caminos son los míos —afirma el Señor—.', libro:'Isaías', reflexion:'No entender los caminos de Dios no es fracaso de fe. Es simplemente ser humano.' },
-  { ref:'Mateo 5:3', texto:'Bienaventurados los pobres en espíritu, porque de ellos es el reino de los cielos.', libro:'Mateo', reflexion:'Las bienaventuranzas no describen victorias. Describen a quienes se sientan a la mesa de todos modos.' },
-  { ref:'Lamentaciones 3:22-23', texto:'El gran amor del Señor nunca se acaba, y su compasión jamás se agota. Cada mañana se renuevan sus bondades.', libro:'Lamentaciones', reflexion:'Estas palabras nacen del duelo más profundo. Y aun así, aparece la misericordia. Mañana.' },
+  /* ── SALMOS ── */
+  { ref:'Salmos 23:1-3', texto:'El Señor es mi pastor, nada me falta. En verdes praderas me hace reposar, me conduce hacia fuentes tranquilas y repara mis fuerzas.', libro:'Salmos', reflexion:'El Salmo del pastor no es una promesa de vida fácil. Es la certeza de que no estarás solo en el camino difícil.' },
+  { ref:'Salmos 46:2', texto:'Dios es nuestro refugio y nuestra fuerza, socorro siempre a mano en momentos de angustia.', libro:'Salmos', reflexion:'El refugio no evita la tormenta. La atraviesa contigo.' },
+  { ref:'Salmos 27:1', texto:'El Señor es mi luz y mi salvación, ¿a quién temeré? El Señor es la defensa de mi vida, ¿quién me hará temblar?', libro:'Salmos', reflexion:'La pregunta no espera respuesta. Ya la tiene.' },
+  { ref:'Salmos 34:9', texto:'Gustad y ved qué bueno es el Señor; dichoso quien se acoge a él.', libro:'Salmos', reflexion:'La fe no es solo conocimiento. Es experiencia. Y la experiencia solo se tiene viviéndola.' },
+  { ref:'Salmos 51:3', texto:'Misericordia, Dios mío, por tu bondad; por tu inmensa compasión borra mi culpa.', libro:'Salmos', reflexion:'El Miserere es la oración más honesta que existe. No hay disfraz, no hay excusa. Solo la verdad y la esperanza en la misericordia.' },
+  { ref:'Salmos 91:1-2', texto:'El que habita al amparo del Altísimo, y mora a la sombra del Todopoderoso, puede decir al Señor: «Mi refugio y fortaleza, mi Dios, en quien confío».', libro:'Salmos', reflexion:'Habitar al amparo no es visitarlo de vez en cuando. Es quedarse.' },
+  { ref:'Salmos 103:8', texto:'El Señor es compasivo y misericordioso, lento a la ira y rico en clemencia.', libro:'Salmos', reflexion:'Lento a la ira. Cuánto dice eso sobre cómo querría Dios que fuéramos también nosotros.' },
+  { ref:'Salmos 118:24', texto:'Este es el día en que actuó el Señor: sea nuestra alegría y nuestro gozo.', libro:'Salmos', reflexion:'No mañana. No cuando todo mejore. Este día. El que tienes.' },
+  { ref:'Salmos 139:1-2', texto:'Señor, tú me sondeas y me conoces; me conoces cuando me siento o me levanto, de lejos penetras mis pensamientos.', libro:'Salmos', reflexion:'Ser completamente conocido y completamente amado al mismo tiempo. Eso es lo que dice el Salmo.' },
+  { ref:'Salmos 121:1-2', texto:'Levanto los ojos a los montes: ¿de dónde me vendrá el auxilio? El auxilio me viene del Señor, que hizo el cielo y la tierra.', libro:'Salmos', reflexion:'La pregunta y la respuesta en dos versículos. A veces la oración es así de sencilla.' },
+  /* ── EVANGELIOS ── */
+  { ref:'Mateo 5:3', texto:'Dichosos los pobres en el espíritu, porque de ellos es el Reino de los Cielos.', libro:'Mateo', reflexion:'Las bienaventuranzas no describen victorias. Describen a quienes se sientan a la mesa de todos modos.' },
+  { ref:'Mateo 5:8', texto:'Dichosos los limpios de corazón, porque ellos verán a Dios.', libro:'Mateo', reflexion:'Ver a Dios no es una recompensa. Es la consecuencia natural de tener el corazón sin opacidades.' },
+  { ref:'Mateo 6:21', texto:'Porque donde está tu tesoro, allí estará también tu corazón.', libro:'Mateo', reflexion:'No dice: donde está tu corazón, pondrás tu tesoro. Lo invierte. El corazón sigue al dinero, no al revés. Conviene saberlo.' },
+  { ref:'Mateo 6:34', texto:'No os preocupéis por el mañana: el mañana se preocupará por sí mismo. A cada día le bastan sus propias fatigas.', libro:'Mateo', reflexion:'No es despreocupación. Es presencia. Estar aquí, en este día, que es el único que tienes.' },
+  { ref:'Mateo 11:28', texto:'Venid a mí todos los que estáis cansados y agobiados, y yo os aliviaré.', libro:'Mateo', reflexion:'No dice: venid cuando estéis mejor. Dice: venid cansados. Así.' },
+  { ref:'Juan 1:5', texto:'La luz brilla en las tinieblas, y las tinieblas no la vencieron.', libro:'Juan', reflexion:'El verbo importa: no la apagaron, no la oscurecieron. No la vencieron. Presente perfecto. Todavía.' },
+  { ref:'Juan 8:12', texto:'Yo soy la luz del mundo. El que me sigue no caminará en tinieblas, sino que tendrá la luz de la vida.', libro:'Juan', reflexion:'Seguir la luz no significa no pasar por la oscuridad. Significa no quedarse en ella.' },
+  { ref:'Juan 11:25', texto:'Yo soy la resurrección y la vida. El que cree en mí, aunque muera, vivirá.', libro:'Juan', reflexion:'Lo dice ante una tumba. No en un templo, no en una montaña. Ante una tumba.' },
+  { ref:'Juan 14:27', texto:'La paz os dejo, mi paz os doy; no como la da el mundo os la doy yo. Que no se turbe vuestro corazón ni se acobarde.', libro:'Juan', reflexion:'Una paz distinta a la del mundo. La del mundo depende de las circunstancias. Esta no.' },
+  { ref:'Juan 15:13', texto:'Nadie tiene amor más grande que el que da su vida por sus amigos.', libro:'Juan', reflexion:'No lo dice como teoría. Lo dice la noche antes de demostrarlo.' },
+  { ref:'Lucas 1:38', texto:'He aquí la esclava del Señor; hágase en mí según tu palabra.', libro:'Lucas', reflexion:'La respuesta más valiente de la historia no la dio un guerrero. La dio una joven de Nazaret.' },
+  { ref:'Lucas 2:14', texto:'Gloria a Dios en el cielo, y en la tierra paz a los hombres que él ama.', libro:'Lucas', reflexion:'El anuncio más grande de la historia lo cantaron ángeles a unos pastores. No a los poderosos.' },
+  { ref:'Lucas 15:4', texto:'¿Quién de vosotros, si tiene cien ovejas y pierde una, no deja las noventa y nueve en el campo y va tras la que se perdió hasta que la encuentra?', libro:'Lucas', reflexion:'Deja las noventa y nueve. Las matemáticas del cielo no son las nuestras.' },
+  /* ── SAN PABLO ── */
+  { ref:'Romanos 8:28', texto:'Sabemos que en todo interviene Dios para bien de los que le aman, de los que han sido llamados según su designio.', libro:'Romanos', reflexion:'No dice que todo sea bueno. Dice que Dios trabaja en todo hacia el bien. La diferencia importa.' },
+  { ref:'Romanos 8:38-39', texto:'Estoy seguro de que ni la muerte ni la vida, ni los ángeles ni los principados, ni lo presente ni lo futuro, ni los poderes, ni lo alto ni lo profundo, ni ninguna otra criatura podrá separarnos del amor de Dios manifestado en Cristo Jesús, Señor nuestro.', libro:'Romanos', reflexion:'La lista es exhaustiva a propósito. Pablo quiere que no encuentres ningún hueco por donde el amor no pase.' },
+  { ref:'1 Corintios 13:4-5', texto:'El amor es paciente, es servicial; el amor no es envidioso, no es jactancioso, no se engríe; es decoroso; no busca su interés; no se irrita; no toma en cuenta el mal.', libro:'1 Corintios', reflexion:'Cuando San Pablo describe el amor, lo hace en verbos. El amor no es un sentimiento. Es una decisión que se repite.' },
+  { ref:'1 Corintios 13:13', texto:'Ahora subsisten la fe, la esperanza y el amor, estas tres. Pero la mayor de todas ellas es el amor.', libro:'1 Corintios', reflexion:'Curiosamente, no la fe. El amor, que permanece cuando la fe se convierte en visión y la esperanza en posesión.' },
+  { ref:'Gálatas 2:20', texto:'Y no vivo yo, sino que es Cristo quien vive en mí; la vida que vivo al presente en la carne, la vivo en la fe del Hijo de Dios, que me amó y se entregó a sí mismo por mí.', libro:'Gálatas', reflexion:'San Pablo no habla de religión. Habla de una sustitución interior. De alguien que entró y cambió el centro.' },
+  { ref:'Filipenses 4:7', texto:'Y la paz de Dios, que supera todo juicio, custodiarà vuestros corazones y vuestros pensamientos en Cristo Jesús.', libro:'Filipenses', reflexion:'Una paz que supera el juicio. Que no se puede explicar del todo. Que simplemente está.' },
+  { ref:'Filipenses 4:13', texto:'Todo lo puedo en aquel que me conforta.', libro:'Filipenses', reflexion:'Lo escribe desde la cárcel. No desde el éxito. Eso cambia todo.' },
+  { ref:'Efesios 2:8', texto:'Porque por gracia estáis salvados mediante la fe; y esto no viene de vosotros, sino que es don de Dios.', libro:'Efesios', reflexion:'El don que no se gana es también el que no se puede perder por méritos propios.' },
+  /* ── ANTIGUO TESTAMENTO ── */
+  { ref:'Isaías 40:31', texto:'Los que esperan en el Señor renuevan sus fuerzas, echan alas como las águilas, corren sin agotarse, marchan sin cansarse.', libro:'Isaías', reflexion:'Renovar no es olvidar el cansancio. Es volver a ponerse en pie con él.' },
+  { ref:'Isaías 41:10', texto:'No temas, que yo estoy contigo; no te angusties, que yo soy tu Dios: te fortalezco y te ayudo, te sostengo con mi diestra victoriosa.', libro:'Isaías', reflexion:'No temas. No te angusties. No como orden, sino como consecuencia de una presencia.' },
+  { ref:'Isaías 43:1', texto:'No temas, que yo te he rescatado, te he llamado por tu nombre, tú eres mío.', libro:'Isaías', reflexion:'Tú eres mío. No como posesión. Como pertenencia elegida.' },
+  { ref:'Isaías 55:8-9', texto:'Porque mis planes no son vuestros planes, vuestros caminos no son mis caminos —oráculo del Señor—. Como el cielo supera a la tierra, así mis caminos superan a los vuestros y mis planes a los vuestros.', libro:'Isaías', reflexion:'No entender los caminos de Dios no es fracaso de fe. Es simplemente ser humano.' },
+  { ref:'Jeremías 29:11', texto:'Porque yo sé los planes que tengo sobre vosotros —oráculo del Señor—: planes de paz, no de desgracia, para daros un porvenir y una esperanza.', libro:'Jeremías', reflexion:'Lo dice a un pueblo en el exilio. En el peor momento. El porvenir se anuncia siempre desde el fondo.' },
+  { ref:'Eclesiastés 3:1', texto:'Todo tiene su hora, y cada cosa su momento bajo el cielo.', libro:'Eclesiastés', reflexion:'El Eclesiastés no nos pide optimismo forzado, sino honestidad sobre la vida. Hay días en que eso basta.' },
+  { ref:'Proverbios 3:5-6', texto:'Confía en el Señor con todo tu corazón, no te apoyes en tu propia prudencia; en todos tus caminos, cuéntale a él, y él allanará tus sendas.', libro:'Proverbios', reflexion:'Con todo el corazón. No con la parte cómoda. Con todo.' },
+  { ref:'Proverbios 4:23', texto:'Sobre todo lo que guardas, guarda tu corazón, porque de él mana la vida.', libro:'Proverbios', reflexion:'El corazón como fuente. Cuida lo que entra en él.' },
+  { ref:'Lamentaciones 3:22-23', texto:'La misericordia del Señor no se acaba, su ternura no se agota; se renuevan cada mañana —grande es tu fidelidad—.', libro:'Lamentaciones', reflexion:'Nacen del duelo más profundo estas palabras. Y aun así, aparece la misericordia. Cada mañana.' },
+  { ref:'Miqueas 6:8', texto:'Se te ha explicado, hombre, lo que es bueno, lo que el Señor pide de ti: tan sólo que obres con justicia, que ames la lealtad, y que humildemente camines con tu Dios.', libro:'Miqueas', reflexion:'Solo tres cosas. No cincuenta. Quizás hoy baste con una.' },
+  { ref:'Sofonías 3:17', texto:'El Señor tu Dios está en medio de ti como un guerrero victorioso; se gozará en ti de alegría, te renovará con su amor, y cantará contigo con gritos de júbilo.', libro:'Sofonías', reflexion:'Dios cantando de alegría por ti. Es una de las imágenes más inesperadas de toda la Biblia.' },
+  /* ── NUEVO TESTAMENTO ── */
+  { ref:'Santiago 1:2-3', texto:'Tened por muy gozoso, hermanos míos, cuando os encontréis con diversas pruebas, sabiendo que la prueba de vuestra fe produce la perseverancia.', libro:'Santiago', reflexion:'Las pruebas no se disfrutan. Se atraviesan. Y algo crece en el cruce.' },
+  { ref:'1 Pedro 5:7', texto:'Descargad sobre él toda vuestra preocupación, ya que él tiene cuidado de vosotros.', libro:'1 Pedro', reflexion:'No dice: resuélvelo. Dice: cárgaselo. Hay una diferencia enorme.' },
+  { ref:'1 Juan 4:16', texto:'Dios es amor, y el que permanece en el amor permanece en Dios y Dios en él.', libro:'1 Juan', reflexion:'No dice que Dios tenga amor. Dice que Dios es amor. Es su naturaleza, no su atributo.' },
+  { ref:'Apocalipsis 21:4', texto:'Enjugará las lágrimas de sus ojos, y ya no habrá muerte, ni habrá llanto, ni gritos, ni dolor, porque todo lo anterior ha pasado.', libro:'Apocalipsis', reflexion:'La última promesa de la Biblia es sobre lo que ya no habrá. A veces la esperanza se define por ausencias.' },
+  { ref:'Hebreos 11:1', texto:'La fe es garantía de lo que se espera; la prueba de las realidades que no se ven.', libro:'Hebreos', reflexion:'Una definición que no resuelve el misterio. Lo ahonda. Y eso es exactamente lo que debe hacer.' },
+  { ref:'Zacarías 4:6', texto:'No será con ejército ni con fuerza, sino con mi espíritu —dice el Señor de los ejércitos—.', libro:'Zacarías', reflexion:'Las victorias más duraderas de la historia no las ganó solo el acero.' },
+  { ref:'Job 38:4', texto:'¿Dónde estabas tú cuando eché los cimientos de la tierra? Dímelo, si es que sabes tanto.', libro:'Job', reflexion:'Job pregunta, grita, exige respuesta. Y Dios responde con otra pregunta. A veces el silencio de Dios es también su voz.' },
+  { ref:'Deuteronomio 31:6', texto:'Sed fuertes y valientes, no temáis ni os espantéis ante ellos, porque el Señor tu Dios marcha contigo: no te abandonará ni te dejará.', libro:'Deuteronomio', reflexion:'No te abandonará. Lo que más teme el corazón humano es quedarse solo. Y eso es lo primero que Dios niega.' },
 ];
 let ultimoVersoIdx = -1;
 
@@ -1004,7 +1053,7 @@ async function loadVerse() {
         max_tokens:1000,
         messages:[{
           role:"user",
-          content:`Selecciona UN versículo de la Biblia (en español, NVI o RVR60) para la reflexión del día. No tiene que ser motivador; puede ser inquietante, misterioso, consolador, desafiante o profundo. Varía entre géneros bíblicos.\n\nResponde SOLO con este JSON sin bloques de código:\n{"texto":"...","referencia":"Libro Cap:Ver","libro":"nombre libro","reflexion":"2-3 oraciones contemplativas, no moralizantes"}`
+          content:`Selecciona UN versículo de la Biblia en la traducción de la Conferencia Episcopal Española (la misma que se usa en las misas en España). No tiene que ser motivador; puede ser inquietante, misterioso, consolador, desafiante o profundo. Varía entre géneros bíblicos: salmos, evangelios, profetas, cartas, sabiduría. Evita los más conocidos y trillados.\n\nResponde SOLO con este JSON sin bloques de código:\n{"texto":"...","referencia":"Libro Cap:Ver","libro":"nombre libro","reflexion":"2-3 oraciones contemplativas, no moralizantes, que inviten a pensar sin dar respuestas definitivas"}`
         }]
       })
     });
