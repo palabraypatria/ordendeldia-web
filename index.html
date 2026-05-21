@@ -515,130 +515,6 @@
     .subtabs-flags { top: 0.6rem; right: 0.7rem; }
   }
 
-  /* ══ PESTAÑA SANTO DEL DÍA ══ */
-  .santo-wrap {
-    background: #120d08;
-    border: 1px solid rgba(184,134,11,0.15);
-    position: relative;
-    overflow: hidden;
-  }
-  .santo-wrap::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, #7a1818 0%, #b8860b 50%, #7a1818 100%);
-  }
-  .santo-header {
-    padding: 2.2rem 3rem 1.6rem;
-    border-bottom: 1px solid rgba(184,134,11,0.12);
-    text-align: center;
-  }
-  .santo-icon-wrap {
-    display: block;
-    font-size: 1.8rem;
-    color: #b8860b;
-    margin-bottom: 0.5rem;
-    opacity: 0.7;
-  }
-  .santo-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1rem, 2.3vw, 1.4rem);
-    color: #f5ede0;
-    -webkit-text-fill-color: #f5ede0;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-  }
-  .santo-header .dia-nombre {
-    display: block;
-    font-family: 'IM Fell English', serif;
-    font-size: 0.8rem;
-    color: #b8860b;
-    -webkit-text-fill-color: #b8860b;
-    letter-spacing: 0.2em;
-    margin-top: 0.35rem;
-  }
-  .santo-content {
-    padding: 2rem 3rem 2.5rem;
-  }
-  .santo-nombre {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    color: #f5ede0;
-    -webkit-text-fill-color: #f5ede0;
-    text-align: center;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.4rem;
-  }
-  .santo-fecha-muerte {
-    text-align: center;
-    font-family: 'IM Fell English', serif;
-    font-size: 0.8rem;
-    color: rgba(184,134,11,0.6);
-    -webkit-text-fill-color: rgba(184,134,11,0.6);
-    letter-spacing: 0.15em;
-    margin-bottom: 1.8rem;
-  }
-  .santo-divider {
-    display: flex; align-items: center; gap: 1rem;
-    margin: 1.5rem 0;
-    color: #b8860b; opacity: 0.35;
-  }
-  .santo-divider::before,.santo-divider::after {
-    content: ''; flex: 1; height: 1px;
-    background: linear-gradient(to right,transparent,#b8860b,transparent);
-  }
-  .santo-bio {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    line-height: 1.9;
-    color: rgba(245,237,224,0.75);
-    -webkit-text-fill-color: rgba(245,237,224,0.75);
-    margin-bottom: 1.8rem;
-  }
-  .santo-cita-bloque {
-    border-left: 3px solid #b8860b;
-    padding: 1rem 1.5rem;
-    background: rgba(184,134,11,0.06);
-    margin-bottom: 0.5rem;
-  }
-  .santo-cita-texto {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: #f5ede0;
-    -webkit-text-fill-color: #f5ede0;
-    line-height: 1.75;
-    margin-bottom: 0.5rem;
-  }
-  .santo-cita-autor {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.78rem;
-    color: #b8860b;
-    -webkit-text-fill-color: #b8860b;
-    letter-spacing: 0.1em;
-  }
-  .santo-patrono {
-    margin-top: 1.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(184,134,11,0.5);
-    -webkit-text-fill-color: rgba(184,134,11,0.5);
-    text-align: center;
-  }
-  .santo-loading-msg {
-    text-align: center;
-    padding: 3rem 2rem;
-    color: rgba(245,237,224,0.35);
-    -webkit-text-fill-color: rgba(245,237,224,0.35);
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 0.95rem;
-  }
-  @media(max-width:600px){
-    .santo-header { padding: 1.8rem 1.5rem 1.2rem; }
-    .santo-content { padding: 1.5rem; }
-  }
 </style>
 </head>
 <body>
@@ -656,10 +532,7 @@
     <button class="tab-btn active" onclick="switchTab('versiculo',this)">
       <span class="tab-icon">✝</span> Versículo del día
     </button>
-    <button class="tab-btn" onclick="switchTab('santo',this)">
-      <span class="tab-icon">☩</span> Santo del día
-    </button>
-    <button class="tab-btn" onclick="switchTab('espana',this)">
+<button class="tab-btn" onclick="switchTab('espana',this)">
       <span class="tab-icon"><img src="data:image/png;base64,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" width="26" height="18" style="vertical-align:middle;object-fit:contain;" alt="Cruz de Borgoña"/></span> España
     </button>
   </div>
@@ -686,21 +559,7 @@
     </div>
   </div>
 
-  <!-- ══ PESTAÑA 2 — SANTO ══ -->
-  <div id="tab-santo" class="tab-panel">
-    <div class="santo-wrap" id="santo-wrap">
-      <div class="santo-header">
-        <span class="santo-icon-wrap">☩</span>
-        <h2>Santo del día</h2>
-        <span class="dia-nombre" id="dia-nombre-santo"></span>
-      </div>
-      <div id="santo-body">
-        <div class="espana-loading"><div class="spinner-dark"></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ PESTAÑA 3 ══ -->
+  <!-- ══ PESTAÑA 2 ══ -->
   <div id="tab-espana" class="tab-panel">
     <div class="espana-wrap" id="espana-wrap">
 
@@ -770,21 +629,6 @@
 
 <script>
 /* ═══════════════════════════════════════
-   CONFIGURACIÓN — URL DEL PROXY
-   Cambia esta URL cuando tengas Railway desplegado
-═══════════════════════════════════════ */
-const PROXY_URL = 'https://ordendeldia-proxy-production.up.railway.app/api/message';
-
-function buildFetchOptions(body) {
-  // Si usamos proxy propio, no enviamos headers de autenticación (los gestiona el servidor)
-  // Si por algún motivo se llama directo, necesitaría api-key (no recomendado)
-  const isProxy = !PROXY_URL.includes('anthropic.com');
-  const headers = { 'Content-Type': 'application/json' };
-  const url = isProxy ? PROXY_URL : PROXY_URL;
-  return { url, headers };
-}
-
-/* ═══════════════════════════════════════
    FECHA
 ═══════════════════════════════════════ */
 const DIAS_ES  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -804,7 +648,6 @@ document.getElementById('dia-nombre-es').textContent =
 ═══════════════════════════════════════ */
 let espanaCargada = false;
 let ejercitoCargado = false;
-let santoCargado = false;
 
 function switchTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -817,7 +660,6 @@ function switchTab(name, btn) {
     sincronizarSelectores();
     loadEspana(fechaConsultada.clave);
   }
-  if (name === 'santo' && !santoCargado) { santoCargado = true; loadSanto(); }
 }
 
 function switchSubTab(name, btn) {
@@ -853,121 +695,6 @@ function switchSubTab(name, btn) {
 /* ═══════════════════════════════════════
    SANTO DEL DÍA
 ═══════════════════════════════════════ */
-// Fallback database de santos con vínculos españoles y frases potentes
-const SANTOS_FALLBACK = {
-  "1-1":  { nombre:"La Circuncisión del Señor", muerte:"·", bio:"El primer día del año la Iglesia celebra que Cristo, a los ocho días de su nacimiento, recibió el nombre de Jesús y fue circuncidado según la Ley de Moisés. Inicio del año bajo el signo de la Redención.", cita:"En el nombre de Jesús se doblará toda rodilla.", autor:"San Pablo, Filipenses 2:10", patrono:"" },
-  "1-6":  { nombre:"La Epifanía del Señor", muerte:"·", bio:"Los Reyes Magos llegan a Belén guiados por la estrella. La España cristiana celebra este día desde la Edad Media con mayor fervor que la Navidad misma. La tradición de los Reyes Magos es herencia de la España católica.", cita:"Venimos de Oriente siguiendo su estrella. ¿Dónde está el Rey de los judíos?", autor:"Mateo 2:2", patrono:"Patronos de la Infancia" },
-  "1-14": { nombre:"San Hilario de Poitiers", muerte:"368", bio:"Doctor de la Iglesia, defensor del dogma de la Trinidad frente al arrianismo. La España visigoda adoptó el catolicismo frente al arrianismo en el III Concilio de Toledo del año 589, cumpliendo el espíritu de San Hilario.", cita:"Fuera del amor a Dios, nada merece el nombre de amor.", autor:"San Hilario de Poitiers", patrono:"" },
-  "1-17": { nombre:"San Antonio Abad", muerte:"356", bio:"Fundador del monacato cristiano. Sus seguidores establecieron los primeros monasterios, de los que descenderán los grandes monasterios españoles: El Escorial, Montserrat, Silos, Yuso. La España monástica es hija espiritual de San Antonio.", cita:"El que no trabaja no merece comer.", autor:"San Antonio Abad", patrono:"Patrono de los animales domésticos" },
-  "1-20": { nombre:"San Sebastián Mártir", muerte:"288", bio:"Soldado romano mártir, patrono de los soldados y de Madrid. Murió asaeteado por orden de Diocleciano por confesar la fe cristiana. Cada 20 de enero, San Sebastián de los Reyes celebra su festividad. El soldado cristiano tiene en Sebastián su modelo.", cita:"El soldado de Cristo no teme la muerte. La espera.", autor:"Tradición martirial cristiana", patrono:"Patrono de los soldados y de Madrid" },
-  "1-25": { nombre:"Conversión de San Pablo", muerte:"·", bio:"San Pablo, el gran apóstol de los gentiles, cayó del caballo camino de Damasco y se convirtió al cristianismo. España fue evangelizada por sus discípulos. Tradición dice que el propio Pablo visitó Hispania. La Iglesia española arranca de este acontecimiento.", cita:"Saulo, Saulo, ¿por qué me persigues?", autor:"Hechos de los Apóstoles 9:4", patrono:"" },
-  "2-2":  { nombre:"La Presentación del Señor (Candelaria)", muerte:"·", bio:"Cuarenta días después de Navidad, María presenta al Niño Jesús en el Templo. Simeón lo proclama luz para iluminar a las naciones. La Candelaria es fiesta de gran devoción en Canarias y en toda la España tradicional.", cita:"Mis ojos han visto tu salvación, luz para iluminar a las naciones.", autor:"Lucas 2:30-32 (Cántico de Simeón)", patrono:"" },
-  "2-5":  { nombre:"Santa Águeda Mártir", muerte:"251", bio:"Mártir siciliana, uno de los primeros martirios de los que da noticia la Iglesia occidental. Santa Águeda es patrona de enfermeras y de las mujeres. Su fiesta es celebrada en toda la España rural con gran devoción popular.", cita:"La que muere por Cristo, reina con Cristo.", autor:"Pasión de Santa Águeda", patrono:"Patrona de las enfermeras" },
-  "2-14": { nombre:"San Valentín Mártir", muerte:"269", bio:"Presbítero romano martirizado por defender el matrimonio cristiano frente al edicto imperial. Su memoria quedó vinculada al amor conyugal cristiano. La España tradicional lo celebra como fiesta del amor entre esposos.", cita:"El amor que no se fundamenta en Dios no dura.", autor:"Tradición cristiana", patrono:"Patrono de los enamorados" },
-  "2-22": { nombre:"La Cátedra de San Pedro", muerte:"·", bio:"La Iglesia celebra la autoridad de Pedro como Vicario de Cristo. España fue siempre fiel a Roma. El III Concilio de Toledo, la Reconquista, el Descubrimiento de América: todo bajo la guía del Papado. España es hija de Pedro.", cita:"Tú eres Pedro, y sobre esta piedra edificaré mi Iglesia.", autor:"Mateo 16:18", patrono:"" },
-  "3-4":  { nombre:"San Casimiro de Polonia", muerte:"1484", bio:"Príncipe polaco que renunció a la corona por no combatir contra cristianos. Su vida de oración y ascesis fue modelo para los jóvenes nobles. En España, la devoción a los santos regios inspira la formación cristiana de los príncipes.", cita:"Prefiero perder un reino que ganar una batalla injusta.", autor:"San Casimiro de Polonia", patrono:"Patrono de la juventud" },
-  "3-7":  { nombre:"Santo Tomás de Aquino", muerte:"1274", bio:"Doctor Angélico, el mayor teólogo de la Iglesia. Su Summa Theologica fue el fundamento intelectual de la España del Siglo de Oro. Francisco de Vitoria, Domingo de Soto, Francisco Suárez: todos discípulos de Tomás. La España imperial pensó con su cabeza.", cita:"La fe no destruye la razón, sino que la perfecciona.", autor:"Santo Tomás de Aquino", patrono:"Patrono de las universidades" },
-  "3-19": { nombre:"San José, Esposo de la Virgen María", muerte:"·", bio:"San José, padre adoptivo de Jesús, es patrono de la Iglesia Universal, de la familia cristiana y de los trabajadores. España tiene una devoción multisecular a San José. Santa Teresa de Ávila le proclamó su protector. El 19 de marzo es fiesta nacional en la España tradicional.", cita:"José era varón justo.", autor:"Mateo 1:19", patrono:"Patrono de la Iglesia Universal, la familia y los trabajadores" },
-  "3-25": { nombre:"La Anunciación del Señor", muerte:"·", bio:"El Ángel Gabriel anuncia a María que concebirá al Hijo de Dios. María dice sí. Nueve meses antes de la Navidad. El momento en que la eternidad entró en el tiempo. La España cristiana lleva nueve siglos repitiendo el Ángel del Señor cada mediodía.", cita:"He aquí la esclava del Señor; hágase en mí según tu palabra.", autor:"Lucas 1:38", patrono:"" },
-  "4-4":  { nombre:"San Isidoro de Sevilla", muerte:"636", bio:"Doctor de la Iglesia, arzobispo de Sevilla, autor de las Etimologías, la primera enciclopedia del mundo occidental. Presidió los Concilios de Toledo que regularon la vida de la España visigoda. Padre intelectual de la España cristiana.", cita:"El ignorante no puede hacer el bien que no conoce.", autor:"San Isidoro de Sevilla", patrono:"Patrono de internet e informática" },
-  "4-23": { nombre:"San Jorge Mártir", muerte:"303", bio:"Soldado romano mártir, cuya imagen con el dragón simboliza al soldado cristiano venciendo el mal. Patrón de Aragón, Cataluña, Alcoy e Inglaterra. La Corona de Aragón extendió la devoción a San Jorge por todo el Mediterráneo.", cita:"El caballero cristiano no lucha por la gloria propia, sino por la justicia.", autor:"Tradición caballeresca cristiana", patrono:"Patrono de Aragón, Cataluña y los soldados" },
-  "4-29": { nombre:"Santa Catalina de Siena", muerte:"1380", bio:"Doctora de la Iglesia, mística italiana que influyó en el retorno del Papa a Roma desde Aviñón. Su espiritualidad marcó a Teresa de Ávila. La España mística del siglo XVI bebe directamente de Catalina de Siena.", cita:"Sed lo que debéis ser y pondréis fuego en toda Italia.", autor:"Santa Catalina de Siena", patrono:"Patrona de Europa" },
-  "5-3":  { nombre:"La Invención de la Santa Cruz", muerte:"·", bio:"Santa Elena, madre del Emperador Constantino, encontró la Vera Cruz en Jerusalén en el año 326. España ha venerado la Cruz como símbolo de la Reconquista: la Cruz de los Ángeles de Oviedo, la Cruz de la Victoria, la Cruz de Borgoña de sus ejércitos.", cita:"Por esta señal vencerás.", autor:"Constantino, visión antes de la batalla del Puente Milvio" },
-  "5-4":  { nombre:"Beata María de la Providencia", muerte:"1904", bio:"Eugenia Smet, fundadora de las Auxiliadoras de las Ánimas del Purgatorio, cuya labor de oración por los difuntos es especialmente venerada en España, donde la devoción a las ánimas del purgatorio tiene honda raigambre popular.", cita:"Las ánimas del Purgatorio son los más pobres de Cristo.", autor:"Beata María de la Providencia", patrono:"" },
-  "5-15": { nombre:"San Isidro Labrador", muerte:"1130", bio:"Labrador madrileño, esposo de Santa María de la Cabeza, patrono de Madrid y de los agricultores. Vivió entregado al trabajo y a la oración. Los ángeles labraban por él mientras rezaba. Felipe II y los reyes de España veneraron sus reliquias. Su cuerpo, incorrupto, reposa en Madrid.", cita:"Señor, si quieres que trabaje, dame fuerzas. Si quieres que ore, ya que tú oras en mí.", autor:"Tradición de San Isidro Labrador", patrono:"Patrono de Madrid y los agricultores" },
-  "5-25": { nombre:"San Gregorio VII, Papa", muerte:"1085", bio:"Papa reformador que luchó por la independencia de la Iglesia frente al poder temporal. Murió exiliado diciendo: amé la justicia y odié la iniquidad. Su reforma gregoriana transformó la Iglesia medieval y fue base de la catolicidad española.", cita:"Amé la justicia y odié la iniquidad, por eso muero en el exilio.", autor:"San Gregorio VII, últimas palabras", patrono:"" },
-  "6-13": { nombre:"San Antonio de Padua", muerte:"1231", bio:"Doctor Evangélico, franciscano, predicador extraordinario. Nacido en Lisboa, vivió en Italia. Patrono de Portugal, tan unido a España durante la monarquía dual. Su devoción es de las más extendidas en toda la Península Ibérica.", cita:"Las acciones hablan más alto que las palabras.", autor:"San Antonio de Padua", patrono:"Patrono de Portugal y los objetos perdidos" },
-  "6-24": { nombre:"Natividad de San Juan Bautista", muerte:"·", bio:"Juan Bautista, el último profeta, el que preparó el camino al Señor. España celebra la noche de San Juan con hogueras que ahuyentan el mal. La tradición de las hogueras de San Juan es uno de los ritos más antiguos de la España cristiana.", cita:"Yo no soy digno de desatar la correa de su sandalia.", autor:"Juan 1:27", patrono:"Patrono de numerosas ciudades españolas" },
-  "6-29": { nombre:"San Pedro y San Pablo, Apóstoles", muerte:"64/67", bio:"Los dos pilares de la Iglesia. Pedro, Vicario de Cristo; Pablo, el Apóstol de los gentiles que evangelizó el mundo mediterráneo y posiblemente visitó Hispania. La España cristiana se asienta sobre el doble fundamento de Pedro y Pablo.", cita:"¿A quién iremos? Tú tienes palabras de vida eterna.", autor:"San Pedro, Juan 6:68", patrono:"Patronos de la Iglesia Universal" },
-  "7-3":  { nombre:"Santo Tomás Apóstol", muerte:"72", bio:"El apóstol que dudó y luego proclamó: Señor mío y Dios mío. Patrono de los arquitectos. La España del Escorial, de las catedrales y de los monasterios le venera. La duda de Tomás es también la fe más valiente.", cita:"¡Señor mío y Dios mío!", autor:"Santo Tomás, Juan 20:28", patrono:"Patrono de los arquitectos" },
-  "7-11": { nombre:"San Benito de Nursia", muerte:"547", bio:"Padre del monacato occidental, fundador de Monte Cassino, autor de la Regla benedictina. Los monasterios benedictinos de España —Silos, Leyre, Montserrat— conservaron la cultura cristiana durante la Reconquista. Patrono de Europa.", cita:"Ora et Labora. Reza y trabaja.", autor:"San Benito de Nursia, Regla de San Benito", patrono:"Patrono de Europa" },
-  "7-22": { nombre:"Santa María Magdalena", muerte:"·", bio:"La primera testigo de la Resurrección. Evangelizadora de la Provenza según la tradición occidental. España guarda sus reliquias en numerosos santuarios. La devoción a la Magdalena es antiquísima en la España cristiana.", cita:"He visto al Señor.", autor:"María Magdalena, Juan 20:18", patrono:"Patrona de los penitentes" },
-  "7-25": { nombre:"Santiago Apóstol, Patrón de España", muerte:"44", bio:"El hijo del trueno, hermano de Juan, primer apóstol mártir. Predicó en Hispania y fue decapitado en Jerusalén. Según la tradición, sus discípulos trajeron su cuerpo a Compostela. Santiago Matamoros guió los ejércitos de la Reconquista durante ochocientos años. El Camino de Santiago es la mayor peregrinación de la Cristiandad.", cita:"¡Santiago y cierra España!", autor:"Grito de guerra de los ejércitos de la Reconquista", patrono:"Patrón de España y de sus ejércitos" },
-  "8-10": { nombre:"San Lorenzo Mártir", muerte:"258", bio:"Diácono romano mártir, quemado vivo sobre una parrilla. Patrono de los pobres a los que servía. Felipe II le tenía especial devoción: el Monasterio de El Escorial fue construido en forma de parrilla en su honor, consagrado en su festividad.", cita:"Ya puedes darme la vuelta. Por este lado ya estoy asado.", autor:"San Lorenzo Mártir, en la parrilla", patrono:"Patrono de los pobres y El Escorial" },
-  "8-15": { nombre:"La Asunción de la Virgen María", muerte:"·", bio:"La Virgen María es asunta en cuerpo y alma al cielo. Es la gran fiesta mariana del verano. España ha sido llamada tierra de María Santísima. La Virgen del Pilar, la Virgen de Guadalupe, la Virgen de Montserrat, la Virgen de Covadonga: España se puso bajo el manto de María.", cita:"Dichosa tú porque has creído.", autor:"Lucas 1:45", patrono:"Patrona de la Infantería española y del Ejército del Aire" },
-  "8-28": { nombre:"San Agustín de Hipona", muerte:"430", bio:"Doctor de la Iglesia, el mayor pensador cristiano después de San Pablo. Sus Confesiones y La Ciudad de Dios forjaron la mentalidad medieval cristiana. La España del Siglo de Oro bebió de Agustín tanto como de Tomás de Aquino.", cita:"Nos hiciste para Ti, Señor, y nuestro corazón está inquieto hasta que descanse en Ti.", autor:"San Agustín de Hipona, Confesiones", patrono:"Patrono de los teólogos" },
-  "9-8":  { nombre:"Natividad de la Virgen María", muerte:"·", bio:"La Iglesia celebra el nacimiento de María. La devoción a la Virgen es el alma de la España cristiana. Nueve siglos de Reconquista se hicieron bajo el manto de María. Los ejércitos de la Reconquista llevaban su imagen.", cita:"Alégrate, llena de gracia, el Señor está contigo.", autor:"Lucas 1:28", patrono:"" },
-  "9-15": { nombre:"Nuestra Señora de los Dolores", muerte:"·", bio:"La Dolorosa, la Madre que sufre junto a la Cruz. La Semana Santa española es la expresión más intensa de esta devoción en el mundo: Sevilla, Málaga, Zamora, Valladolid, Cuenca. La Virgen de los Dolores es el corazón de la piedad popular española.", cita:"A ti también una espada te traspasará el alma.", autor:"Lucas 2:35 (Simeón a María)", patrono:"Patrona de numerosas cofradías españolas" },
-  "9-29": { nombre:"San Miguel Arcángel", muerte:"·", bio:"El Arcángel que combate al dragón, quien vence a Satanás. Patrono de los militares y de la Guardia Civil española. Los ejércitos de la Reconquista marchaban con su imagen. Felipe II lo veneraba especialmente.", cita:"¿Quién como Dios?", autor:"Significado del nombre Miguel (Mi-ka-el en hebreo)", patrono:"Patrono de los militares y la Guardia Civil" },
-  "10-4": { nombre:"San Francisco de Asís", muerte:"1226", bio:"El Poverello de Asís, fundador de los franciscanos, el orden que evangelizó América junto a los dominicos. Fray Junípero Serra, franciscano español, fundó las misiones de California. La orden seráfica es parte del alma de la España imperial.", cita:"El Señor me dio hermanos.", autor:"San Francisco de Asís, Testamento", patrono:"Patrono de la ecología" },
-  "10-12": { nombre:"Nuestra Señora del Pilar, Patrona de España", muerte:"·", bio:"La Virgen del Pilar de Zaragoza es la patrona de España, de la Hispanidad y de la Guardia Civil. Según la tradición, la Virgen se apareció al apóstol Santiago en carne mortal sobre una columna de jaspe en Zaragoza. Es la primera aparición mariana de la historia cristiana.", cita:"Este lugar me es agradable, y quiero que en él sea edificado un templo.", autor:"Tradición de la aparición de la Virgen del Pilar a Santiago", patrono:"Patrona de España, la Hispanidad, la Guardia Civil y la Infantería" },
-  "10-15": { nombre:"Santa Teresa de Ávila", muerte:"1582", bio:"Doctora de la Iglesia, fundadora de las Carmelitas Descalzas, mística extraordinaria. Nació en Ávila en 1515. Su reforma del Carmelo fue la respuesta española a la Reforma protestante: más oración, más austeridad, más santidad. Patrona de España junto a Santiago.", cita:"Nada te turbe, nada te espante, todo se pasa. Dios no se muda.", autor:"Santa Teresa de Ávila, Nada te turbe", patrono:"Patrona de España" },
-  "11-1": { nombre:"Todos los Santos", muerte:"·", bio:"La España cristiana celebra a todos los santos, conocidos y desconocidos. El día de Todos los Santos es el día de los héroes anónimos de la fe, los que vivieron y murieron en la gracia de Dios sin que nadie lo sepa.", cita:"Bienaventurados los que sufren persecución por la justicia, porque de ellos es el reino de los cielos.", autor:"Mateo 5:10", patrono:"" },
-  "11-2": { nombre:"Conmemoración de los Fieles Difuntos", muerte:"·", bio:"La España cristiana reza por sus muertos. El 2 de noviembre, las familias visitan los cementerios y oran por los que fueron. Es una de las tradiciones más enraizadas de la piedad popular española. El respeto a los muertos es pilar de la civilización cristiana.", cita:"El recuerdo de los justos es una bendición.", autor:"Proverbios 10:7", patrono:"" },
-  "11-11": { nombre:"San Martín de Tours", muerte:"397", bio:"Soldado romano convertido en obispo, que partió su capa con un pobre. La devoción a San Martín llegó a España con los peregrinos del Camino de Santiago. Numerosas localidades españolas llevan su nombre.", cita:"Señor, si soy necesario aún a tu pueblo, no rehúso el trabajo.", autor:"San Martín de Tours", patrono:"Patrono de los soldados y los pobres" },
-  "11-22": { nombre:"Santa Cecilia Mártir", muerte:"230", bio:"Mártir romana, patrona de la música y los músicos. La polifonía española del Renacimiento, Tomás Luis de Victoria, Francisco Guerrero, Cristóbal de Morales: la mayor escuela musical del mundo en el siglo XVI. España cantó a Dios con la voz más bella de Europa.", cita:"Cantad al Señor un cántico nuevo.", autor:"Salmos 96:1", patrono:"Patrona de la música y los músicos" },
-  "12-3": { nombre:"San Francisco Javier, Apóstol de las Indias", muerte:"1552", bio:"Navarro, compañero de San Ignacio, misionero en la India y Japón. Con él, España llevó el Evangelio a Asia. Patron de Navarra y de las misiones. Murió solo en la isla de Sancián, frente a las costas de China, esperando entrar. La España misionera tiene en Javier su símbolo mayor.", cita:"Más, Señor, más.", autor:"San Francisco Javier, su oración habitual", patrono:"Patrono de Navarra y las misiones" },
-  "12-8": { nombre:"La Inmaculada Concepción", muerte:"·", bio:"María concebida sin pecado original. España defendió este dogma durante siglos antes de que Roma lo definiera en 1854. Los Tercios combatieron por la Inmaculada. Sevilla se levantó en revuelta por ella en 1615. Es patrona de España y de la Infantería española.", cita:"Concebida sin pecado original. Patrona de España.", autor:"Decreto dogmático de Pío IX, 1854", patrono:"Patrona de España y de la Infantería española" },
-  "12-12": { nombre:"Nuestra Señora de Guadalupe (México)", muerte:"·", bio:"La Virgen de Guadalupe se apareció a Juan Diego en el Tepeyac en 1531. En diez años, nueve millones de indígenas se bautizaron. Es el fruto más glorioso de la evangelización española de América. Patrona de México y de toda la América hispana.", cita:"¿No estoy yo aquí, que soy tu madre?", autor:"Nuestra Señora de Guadalupe a Juan Diego, 1531", patrono:"Patrona de México y América" },
-  "12-25": { nombre:"Natividad del Señor Jesucristo", muerte:"·", bio:"El Hijo de Dios se hace hombre en Belén. La Navidad española es la más rica en tradiciones del mundo: el Belén (inventado por San Francisco de Asís), los villancicos, la Misa del Gallo, la Nochebuena en familia. España celebra el nacimiento de Cristo con mayor fervor que ninguna otra nación.", cita:"Y el Verbo se hizo carne y habitó entre nosotros.", autor:"Juan 1:14", patrono:"" },
-  "12-28": { nombre:"Santos Inocentes Mártires", muerte:"s. I", bio:"Los niños masacrados por Herodes en busca del Niño Jesús. Primeros mártires de la historia cristiana, murieron por Cristo sin saberlo. La España cristiana los recuerda con la fiesta de los Inocentes, día de bromas y de memoria del sacrificio de los más pequeños.", cita:"Voz se oyó en Ramá: llanto y grande lamentación. Raquel llora a sus hijos.", autor:"Mateo 2:18", patrono:"Patronos de los niños" }
-};
-
-function getSantoFallback(clave) {
-  if (SANTOS_FALLBACK[clave]) return SANTOS_FALLBACK[clave];
-  // Si no hay para ese día, buscar el más próximo o devolver genérico
-  return { nombre:"Santo del día", muerte:"·", bio:"La Iglesia Católica ha santificado a más de diez mil personas a lo largo de los siglos. España ocupa un lugar privilegiado en el santoral: más de quinientos santos y beatos nacidos en tierra española. Hoy, como cada día, algún nombre engrosa ese ejército de luz.", cita:"Sed santos, porque yo, el Señor vuestro Dios, soy santo.", autor:"Levítico 19:2", patrono:"" };
-}
-
-async function loadSanto() {
-  const body   = document.getElementById('santo-body');
-  const clave  = CLAVE;
-  const fecha  = `${HOY.getDate()} de ${MESES_ES[HOY.getMonth()]}`;
-  document.getElementById('dia-nombre-santo').textContent = fecha;
-  body.innerHTML = '';
-
-  // Spinner
-  const sp = document.createElement('div');
-  sp.className = 'espana-loading';
-  sp.innerHTML = '<div class="spinner-dark"></div>';
-  body.appendChild(sp);
-
-  let s = null;
-
-  try {
-    const { url } = buildFetchOptions();
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        messages: [{ role: "user", content: `Hoy es ${fecha}. Dime el santo o santos principales de este día según el santoral católico romano oficial, con especial atención a santos con vínculos con España, Hispanoamérica o la Iglesia universal. Si hay varios santos, elige el más relevante o el patrono principal.
-
-Responde SOLO con este JSON sin bloques de código ni texto extra:
-{
-  "nombre": "Nombre completo del santo o festividad litúrgica",
-  "muerte": "año de muerte o '·' si es misterio de fe",
-  "bio": "Biografía de 4-5 frases, con tono solemne y reverente. Destaca su santidad, sus obras, sus vínculos con España o Hispanoamérica si los hay.",
-  "cita": "Una frase célebre del propio santo, o de un Papa sobre él, o un versículo bíblico de su vida. Que sea una frase que dé orgullo y edificación leerla.",
-  "autor": "Nombre exacto del autor de la cita",
-  "patrono": "De qué es patrono/a, breve. Vacío si no aplica."
-}` }]
-      })
-    });
-    const data = await res.json();
-    const raw  = data.content.map(i => i.text || '').join('');
-    s = JSON.parse(raw.replace(/```json|```/g, '').trim());
-  } catch(e) {
-    s = getSantoFallback(clave);
-  }
-
-  body.innerHTML = '';
-  const div = document.createElement('div');
-  div.className = 'santo-content';
-  div.innerHTML = `
-    <h3 class="santo-nombre">${s.nombre}</h3>
-    <p class="santo-fecha-muerte">${s.muerte !== '·' ? '† ' + s.muerte : ''}</p>
-    <p class="santo-bio">${s.bio}</p>
-    <div class="santo-divider"><span>✦</span></div>
-    <div class="santo-cita-bloque">
-      <p class="santo-cita-texto">${s.cita}</p>
-      <p class="santo-cita-autor">— ${s.autor}</p>
-    </div>
-    ${s.patrono ? `<p class="santo-patrono">${s.patrono}</p>` : ''}
-  `;
-  body.appendChild(div);
-}
 
 /* ═══════════════════════════════════════
    PESTAÑA 1 — VERSÍCULO
@@ -1028,55 +755,87 @@ const VERSOS_FALLBACK = [
   { ref:'Zacarías 4:6', texto:'No será con ejército ni con fuerza, sino con mi espíritu —dice el Señor de los ejércitos—.', libro:'Zacarías', reflexion:'Las victorias más duraderas de la historia no las ganó solo el acero.' },
   { ref:'Job 38:4', texto:'¿Dónde estabas tú cuando eché los cimientos de la tierra? Dímelo, si es que sabes tanto.', libro:'Job', reflexion:'Job pregunta, grita, exige respuesta. Y Dios responde con otra pregunta. A veces el silencio de Dios es también su voz.' },
   { ref:'Deuteronomio 31:6', texto:'Sed fuertes y valientes, no temáis ni os espantéis ante ellos, porque el Señor tu Dios marcha contigo: no te abandonará ni te dejará.', libro:'Deuteronomio', reflexion:'No te abandonará. Lo que más teme el corazón humano es quedarse solo. Y eso es lo primero que Dios niega.' },
+  /* ── MÁS SALMOS ── */
+  { ref:'Salmos 16:8', texto:'Tengo siempre presente al Señor, con él a mi derecha no vacilaré.', libro:'Salmos', reflexion:'A la derecha, que es el lugar del apoyo. No delante liderando, no detrás empujando. Al lado.' },
+  { ref:'Salmos 19:2', texto:'Los cielos proclaman la gloria de Dios, el firmamento pregona la obra de sus manos.', libro:'Salmos', reflexion:'Hay momentos en que la creación habla más claro que cualquier sermón. El cielo estrellado, el amanecer, la tormenta.' },
+  { ref:'Salmos 25:4-5', texto:'Señor, enséñame tus caminos, instrúyeme en tus sendas. Guíame con tu verdad, instrúyeme, pues tú eres mi Dios y Salvador.', libro:'Salmos', reflexion:'El que pide ser instruido reconoce que no lo sabe todo. Esa humildad es ya el principio de la sabiduría.' },
+  { ref:'Salmos 30:6', texto:'Su cólera dura un momento, su bondad, toda la vida; al atardecer nos visita el llanto, por la mañana, el júbilo.', libro:'Salmos', reflexion:'Por la mañana, el júbilo. No siempre se ve desde la noche. Pero la promesa es que llega.' },
+  { ref:'Salmos 37:4', texto:'Busca la felicidad en el Señor, y él te dará lo que pide tu corazón.', libro:'Salmos', reflexion:'Busca primero la fuente. Los deseos del corazón se aclaran solos cuando el corazón está en el lugar correcto.' },
+  { ref:'Salmos 42:2', texto:'Como busca la cierva corrientes de agua, así mi alma te busca a ti, Dios mío.', libro:'Salmos', reflexion:'La sed de Dios no es debilidad. Es el síntoma más honesto de lo que somos.' },
+  { ref:'Salmos 62:2', texto:'Solo en Dios descansa mi alma, de él viene mi salvación; él solo es mi roca y mi salvación, mi baluarte: no vacilaré.', libro:'Salmos', reflexion:'Solo en Dios. No en las circunstancias favorables. No en la ausencia de dificultad. En Dios solo.' },
+  { ref:'Salmos 73:23-24', texto:'Pero yo siempre estaré contigo, tú agarras mi mano derecha; me guías con tu consejo, y al final me recibirás en gloria.', libro:'Salmos', reflexion:'Lo dice después de confesar que casi había perdido la fe al ver prosperar a los malvados. La honestidad del Salmo es su grandeza.' },
+  { ref:'Salmos 84:11', texto:'Más vale un día en tus atrios que mil en mi casa.', libro:'Salmos', reflexion:'Un verso que no necesita explicación. Solo necesita experiencia.' },
+  { ref:'Salmos 90:12', texto:'Enséñanos a calcular nuestros años, para que adquiramos un corazón sensato.', libro:'Salmos', reflexion:'No pide más años. Pide sabiduría para los que quedan.' },
+  { ref:'Salmos 94:19', texto:'Cuando se multiplican mis angustias en mi interior, tus consuelos calman mi alma.', libro:'Salmos', reflexion:'Cuando se multiplican. No cuando desaparecen. El consuelo de Dios no exige que el problema se resuelva primero.' },
+  { ref:'Salmos 116:15', texto:'Preciosa es a los ojos del Señor la muerte de sus fieles.', libro:'Salmos', reflexion:'Uno de los versículos más enigmáticos de los Salmos. Dios mira la muerte de los suyos de otra manera.' },
+  { ref:'Salmos 127:1', texto:'Si el Señor no construye la casa, en vano se cansan los albañiles; si el Señor no guarda la ciudad, en vano vigilan los centinelas.', libro:'Salmos', reflexion:'El versículo no dice que no trabajemos. Dice dónde está el cimiento. Sin él, todo es en vano.' },
+  { ref:'Salmos 131:1-2', texto:'Señor, mi corazón no es ambicioso, ni mis ojos altaneros; no persigo grandezas, ni metas superiores a mí. Sino que me he calmado y silenciado: como niño en brazos de su madre, como un niño, así está mi alma.', libro:'Salmos', reflexion:'El salmo más breve del salterio. Y quizás el que más paz da leer.' },
+  { ref:'Salmos 145:8', texto:'El Señor es compasivo y misericordioso, lento a la ira y rico en clemencia.', libro:'Salmos', reflexion:'Lento a la ira. No sin ira, sino lento. Conviene recordarlo también cuando se trata de cómo actuamos nosotros.' },
+  /* ── MÁS EVANGELIOS ── */
+  { ref:'Mateo 5:9', texto:'Dichosos los que trabajan por la paz, porque ellos serán llamados hijos de Dios.', libro:'Mateo', reflexion:'No los que tienen paz. Los que trabajan por ella. La paz bienaventurada es activa.' },
+  { ref:'Mateo 5:14', texto:'Vosotros sois la luz del mundo. No puede ocultarse una ciudad puesta en lo alto de un monte.', libro:'Mateo', reflexion:'No dice: seréis luz si os portáis bien. Dice: sois. Ya lo son. El llamado es a no esconderse.' },
+  { ref:'Mateo 7:7', texto:'Pedid y se os dará, buscad y hallaréis, llamad y se os abrirá.', libro:'Mateo', reflexion:'Tres verbos. Tres promesas. El primero es el más fácil. El último, el más valiente.' },
+  { ref:'Mateo 18:3', texto:'Os aseguro que si no cambiáis y os hacéis como niños, no entraréis en el Reino de los Cielos.', libro:'Mateo', reflexion:'No dice que seamos ingenuos. Dice que cambiemos. La puerta del Reino es más estrecha para el que se cree mayor.' },
+  { ref:'Marcos 10:27', texto:'Para los hombres es imposible, pero no para Dios; porque para Dios todo es posible.', libro:'Marcos', reflexion:'Lo dice después de que los discípulos se hayan quedado perplejos. La perplejidad es el punto de partida correcto.' },
+  { ref:'Lucas 6:27-28', texto:'Pero a vosotros que me escucháis os digo: amad a vuestros enemigos, haced bien a los que os odian, bendecid a los que os maldicen, rezad por los que os difaman.', libro:'Lucas', reflexion:'El mandamiento más exigente y el más subversivo de la historia. Nadie lo cumple del todo. Pero cambia al que lo intenta.' },
+  { ref:'Lucas 10:42', texto:'Solo una cosa es necesaria. María ha elegido la parte mejor, y no le será quitada.', libro:'Lucas', reflexion:'Solo una. No diez, no tres. Una. La contemplación no es un lujo. Es lo esencial.' },
+  { ref:'Juan 3:16', texto:'Porque tanto amó Dios al mundo, que entregó a su Hijo único, para que todo el que cree en él no perezca, sino que tenga vida eterna.', libro:'Juan', reflexion:'El versículo más conocido de la Biblia. Hay quien lo lee mil veces sin que le cambie. Y quien lo lee una sola vez y ya no es el mismo.' },
+  { ref:'Juan 6:35', texto:'Yo soy el pan de vida. El que viene a mí no tendrá hambre, y el que cree en mí no tendrá nunca sed.', libro:'Juan', reflexion:'Hay hambres que los alimentos no sacian. Hay sedas que el agua no apaga. El versículo habla de esas.' },
+  { ref:'Juan 10:10', texto:'Yo he venido para que tengan vida, y la tengan en abundancia.', libro:'Juan', reflexion:'No una vida apenas suficiente. Abundante. El Evangelio no es una propuesta de mínimos.' },
+  { ref:'Juan 10:27-28', texto:'Mis ovejas escuchan mi voz, y yo las conozco y ellas me siguen; yo les doy vida eterna y no perecerán para siempre.', libro:'Juan', reflexion:'Las conoce. No las administra ni las gestiona. Las conoce. Esa es la diferencia.' },
+  { ref:'Juan 16:33', texto:'Os he dicho estas cosas para que tengáis paz en mí. En el mundo tendréis tribulaciones; pero ánimo, yo he vencido al mundo.', libro:'Juan', reflexion:'No dice: evitaréis las tribulaciones. Dice: ánimo. La paz no es ausencia de dificultad. Es saber quién venció.' },
+  /* ── MÁS SAN PABLO ── */
+  { ref:'Romanos 5:3-4', texto:'Nos gloriamos hasta en las tribulaciones, sabiendo que la tribulación produce paciencia; la paciencia, virtud probada; la virtud probada, esperanza.', libro:'Romanos', reflexion:'Una cadena de consecuencias que empieza donde nadie quiere empezar: en la tribulación.' },
+  { ref:'Romanos 12:2', texto:'No os acomodéis al mundo presente, sino transformaos por la renovación de la mente, para que podáis discernir cuál es la voluntad de Dios: lo bueno, lo agradable, lo perfecto.', libro:'Romanos', reflexion:'La renovación de la mente no es optimismo. Es discernimiento. Ver las cosas como son, no como el mundo dice que son.' },
+  { ref:'Romanos 15:13', texto:'Que el Dios de la esperanza os llene de toda alegría y paz en la fe, para que abundéis en la esperanza por la fuerza del Espíritu Santo.', libro:'Romanos', reflexion:'El Dios de la esperanza. No de los que ya tienen todo resuelto. El Dios que está especialmente presente en el que espera.' },
+  { ref:'2 Corintios 4:8-9', texto:'Estamos atribulados en todo, pero no aplastados; perplejos, pero no desesperados; perseguidos, pero no abandonados; derribados, pero no aniquilados.', libro:'2 Corintios', reflexion:'Cuatro contrastes que definen al cristiano que sufre. No sin heridas. Pero nunca sin esperanza.' },
+  { ref:'2 Corintios 12:9', texto:'Me basta mi gracia, porque mi fuerza se muestra plenamente en la debilidad.', libro:'2 Corintios', reflexion:'La respuesta de Dios a la súplica de Pablo que pedía que le quitara el aguijón. Una respuesta que no era la que pedía, pero era mejor.' },
+  { ref:'Gálatas 5:22-23', texto:'El fruto del Espíritu es amor, alegría, paz, magnanimidad, amabilidad, bondad, fidelidad, mansedumbre, templanza.', libro:'Gálatas', reflexion:'Nueve palabras. No como mandamientos, sino como frutos. Lo que crece cuando el Espíritu está.' },
+  { ref:'Efesios 3:20', texto:'Al que puede hacer, por el poder que actúa en nosotros, muchísimo más de lo que pedimos o pensamos.', libro:'Efesios', reflexion:'Muchísimo más de lo que pedimos o pensamos. Conviene recordarlo antes de recortar las oraciones.' },
+  { ref:'Efesios 6:10', texto:'En fin, hermanos, fortaleceos con el Señor y con la fuerza de su poder.', libro:'Efesios', reflexion:'Con la fuerza de su poder, no con la propia. La distinción cambia completamente el punto de partida.' },
+  { ref:'Colosenses 3:2', texto:'Buscad los bienes de arriba, donde está Cristo sentado a la derecha de Dios; aspirad a los bienes de arriba, no a los de la tierra.', libro:'Colosenses', reflexion:'No dice que la tierra no importe. Dice que no sea el techo.' },
+  { ref:'1 Tesalonicenses 5:16-18', texto:'Estad siempre alegres. Orad sin cesar. Dad gracias en toda ocasión: esto es lo que Dios quiere de vosotros en Cristo Jesús.', libro:'1 Tesalonicenses', reflexion:'Tres imperativos en tres versículos. El más difícil no es el primero ni el último. Es el del medio.' },
+  { ref:'2 Timoteo 1:7', texto:'Pues Dios no nos ha dado un espíritu de timidez, sino de fortaleza, de amor y de moderación.', libro:'2 Timoteo', reflexion:'El miedo no viene de Dios. Cuando llegue, conviene recordar su origen.' },
+  { ref:'Hebreos 12:1', texto:'Así, pues, también nosotros, rodeados de tan gran nube de testigos, sacudamos todo lastre y el pecado que nos asedia, y corramos con constancia la carrera que se nos propone.', libro:'Hebreos', reflexion:'Rodeados de testigos. No solos en la carrera. Los que vinieron antes siguen mirando.' },
+  { ref:'Hebreos 13:8', texto:'Jesucristo es el mismo ayer, hoy y siempre.', libro:'Hebreos', reflexion:'En un mundo donde todo cambia, una afirmación que ancla. Ayer, cuando todo iba bien. Hoy, en este momento. Siempre.' },
+  /* ── ANTIGUO TESTAMENTO ADICIONAL ── */
+  { ref:'Génesis 1:31', texto:'Dios miró todo lo que había hecho, y era muy bueno.', libro:'Génesis', reflexion:'Muy bueno. No perfecto en el sentido de que no puede mejorar. Muy bueno en el sentido de que Dios lo mira con alegría.' },
+  { ref:'Éxodo 14:14', texto:'El Señor luchará por vosotros; vosotros no tengáis miedo.', libro:'Éxodo', reflexion:'Lo dice ante el Mar Rojo, con el ejército egipcio detrás. La promesa más grande siempre llega en el momento más imposible.' },
+  { ref:'Números 6:24-26', texto:'El Señor te bendiga y te guarde; el Señor haga brillar su rostro sobre ti y te sea propicio; el Señor te muestre su rostro y te conceda la paz.', libro:'Números', reflexion:'La bendición aarónica, la más antigua de la Biblia que sigue en uso. Tres deseos, tres veces el nombre de Dios. La paz es el último y el más grande.' },
+  { ref:'Josué 1:9', texto:'¿No te lo he mandado yo? ¡Esfuérzate y sé valiente! No te asustes ni te acobardes, porque el Señor, tu Dios, estará contigo dondequiera que vayas.', libro:'Josué', reflexion:'Dondequiera que vayas. Sin excepciones, sin lugares excluidos, sin situaciones donde la promesa no aplique.' },
+  { ref:'1 Samuel 16:7', texto:'No te fíes de su aspecto ni de su gran estatura, pues lo he descartado. Dios no mira lo que el hombre mira, el hombre mira las apariencias, pero el Señor mira el corazón.', libro:'1 Samuel', reflexion:'El criterio de Dios y el criterio del mundo son opuestos. Conviene saber cuál de los dos estás usando.' },
+  { ref:'Eclesiastés 12:13', texto:'Conclusión de todo lo que has oído: teme a Dios y guarda sus mandamientos, pues eso incumbe a todo hombre.', libro:'Eclesiastés', reflexion:'El libro más escéptico de la Biblia llega a esta conclusión. No como resignación, sino como destilación.' },
+  { ref:'Isaías 9:5', texto:'Porque un niño nos ha nacido, un hijo se nos ha dado; lleva al hombro el principado, y su nombre será: Consejero admirable, Dios guerrero, Padre perpetuo, Príncipe de la paz.', libro:'Isaías', reflexion:'Cuatro nombres. Cada uno una dimensión. El último y el que más necesita el mundo: Príncipe de la paz.' },
+  { ref:'Isaías 53:5', texto:'Él fue traspasado por nuestras iniquidades, triturado por nuestros crímenes. Nuestro castigo saludable cayó sobre él, sus cicatrices nos curaron.', libro:'Isaías', reflexion:'Escrito setecientos años antes. El profeta vio lo que vendría con más claridad que muchos que lo vivieron.' },
+  { ref:'Ezequiel 36:26', texto:'Os daré un corazón nuevo, infundiré en vosotros un espíritu nuevo; arrancaré de vuestra carne el corazón de piedra y os daré un corazón de carne.', libro:'Ezequiel', reflexion:'La promesa no es remendar el corazón viejo. Es sustituirlo. Eso es la conversión.' },
+  { ref:'Oseas 6:3', texto:'Esforcémonos en conocer al Señor: su salida es segura como la aurora; vendrá a nosotros como la lluvia de primavera que empapa la tierra.', libro:'Oseas', reflexion:'Como la lluvia de primavera. Dios no llega como sequía ni como inundación. Llega como lo que la tierra necesita.' },
+  { ref:'Habacuc 3:17-18', texto:'Aunque la higuera no florezca ni haya frutos en la viña, aunque falle la cosecha del olivo y los campos no den alimento, aunque falten ovejas en el redil y no haya reses en los establos, yo me alegro en el Señor, me regocijo en el Dios que me salva.', libro:'Habacuc', reflexion:'La fe que no depende de la cosecha. La alegría que no necesita circunstancias favorables para existir.' },
 ];
 let ultimoVersoIdx = -1;
 
-async function loadVerse() {
+function loadVerse() {
   const loading = document.getElementById('loading');
-  const btn = document.getElementById('btn-new');
+  const btn     = document.getElementById('btn-new');
   const verseEl = document.getElementById('verse-text');
   const refEl   = document.getElementById('verse-ref');
   const reflex  = document.getElementById('reflection');
   const badge   = document.getElementById('book-badge');
-
   loading.classList.add('active');
   btn.disabled = true;
   [verseEl,refEl,reflex].forEach(e => e.classList.add('refreshing'));
-
-  try {
-    const { url } = buildFetchOptions();
-    const res = await fetch(url, {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({
-        model:"claude-sonnet-4-20250514",
-        max_tokens:1000,
-        messages:[{
-          role:"user",
-          content:`Selecciona UN versículo de la Biblia en la traducción de la Conferencia Episcopal Española (la misma que se usa en las misas en España). No tiene que ser motivador; puede ser inquietante, misterioso, consolador, desafiante o profundo. Varía entre géneros bíblicos: salmos, evangelios, profetas, cartas, sabiduría. Evita los más conocidos y trillados.\n\nResponde SOLO con este JSON sin bloques de código:\n{"texto":"...","referencia":"Libro Cap:Ver","libro":"nombre libro","reflexion":"2-3 oraciones contemplativas, no moralizantes, que inviten a pensar sin dar respuestas definitivas"}`
-        }]
-      })
-    });
-    const data = await res.json();
-    const raw = data.content.map(i=>i.text||'').join('');
-    const parsed = JSON.parse(raw.replace(/```json|```/g,'').trim());
-    verseEl.textContent = parsed.texto;
-    refEl.textContent   = `— ${parsed.referencia}`;
-    reflex.textContent  = parsed.reflexion;
-    badge.textContent   = parsed.libro.toUpperCase();
-  } catch(e) {
-    let idx; do { idx = Math.floor(Math.random()*VERSOS_FALLBACK.length); } while(idx===ultimoVersoIdx);
-    ultimoVersoIdx = idx;
-    const v = VERSOS_FALLBACK[idx];
+  let idx;
+  do { idx = Math.floor(Math.random() * VERSOS_FALLBACK.length); } while (idx === ultimoVersoIdx);
+  ultimoVersoIdx = idx;
+  const v = VERSOS_FALLBACK[idx];
+  setTimeout(() => {
     verseEl.textContent = v.texto;
     refEl.textContent   = `— ${v.ref}`;
     reflex.textContent  = v.reflexion;
     badge.textContent   = v.libro.toUpperCase();
-  }
-
-  [verseEl,refEl,reflex].forEach(e => e.classList.remove('refreshing'));
-  loading.classList.remove('active');
-  btn.disabled = false;
+    [verseEl,refEl,reflex].forEach(e => e.classList.remove('refreshing'));
+    loading.classList.remove('active');
+    btn.disabled = false;
+  }, 350);
 }
 
 /* ═══════════════════════════════════════
